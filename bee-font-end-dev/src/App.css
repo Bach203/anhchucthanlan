@@ -1,0 +1,37 @@
+:root {
+  --primary: #f23f2f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+}
+
+body {
+  line-height: 21px;
+  font-size: 14px;
+  color: #000000;
+  background: rgb(255, 255, 255);
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-top: 1px solid #ddd;
+}
+.demo-logo-vertical {
+  height: 32px;
+  margin: 16px;
+  background: #ffffff33;
+  border-radius: 6px;
+}
+
+.hover-text:hover {
+  color: #1677ff; /* Đổi màu sắc khi hover */
+}
