@@ -93,9 +93,12 @@ const index: React.FC = () => {
       align: "center",
       sorter: true,
       render: (listChiTietSanPham) => {
-        // Tính tổng số lượng từ danh sách listChiTietSanPham
+        if (!listChiTietSanPham || !Array.isArray(listChiTietSanPham)) {
+          return 0; // Nếu không có dữ liệu, trả về 0
+        }
+
         const totalQuantity = listChiTietSanPham.reduce((total, item) => {
-          return total + item.soLuong;
+          return total + (item.soLuong || 0); // Kiểm tra item.soLuong để tránh undefined
         }, 0);
 
         return totalQuantity;

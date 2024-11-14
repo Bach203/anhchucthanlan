@@ -42,6 +42,7 @@ interface DataGioHang {
     loaiDe: {
       ten: string;
     };
+    soLuong: number;
   };
 }
 

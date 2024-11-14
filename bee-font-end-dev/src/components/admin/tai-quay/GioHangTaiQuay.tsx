@@ -402,6 +402,7 @@ const GioHangTaiQuay: React.FC<{ id: number; loadHoaDon: () => void }> = ({
     });
   };
 
+  let isProcessing = false;
   const handleThanhToan = async (id) => {
     fetchHoaDonDetails(id);
 
@@ -464,14 +465,14 @@ const GioHangTaiQuay: React.FC<{ id: number; loadHoaDon: () => void }> = ({
             const resVNPay = await request.get("vn-pay/create-payment", {
               params: {
                 soTienThanhToan: tongTienKhiGiam,
-                maGiaoDich: resGD.data.maGiaoDich,                                
+                maGiaoDich: resGD.data.maGiaoDich,
               },
             });
             // Log URL chuyển hướng trước khi thực hiện chuyển hướng
             console.log(" URL cần test khi tt vnpay giao hàng:", resVNPay.data);
             window.location.href = resVNPay.data;
-            
 
+            console.log(listChiTiet);
           }
         } catch (error) {
           console.log(error);

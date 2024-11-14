@@ -477,7 +477,9 @@ const index: React.FC = () => {
   });
 
   // Tính toán dữ liệu của các sản phẩm được chọn
-  const selectedData = data.filter((item) => selectedProducts.includes(item.id));
+  const selectedData = data.filter((item) =>
+    selectedProducts.includes(item.id)
+  );
 
   const totalSelectedAmount = selectedData.reduce((acc, item) => {
     const itemPrice = item.chiTietSanPham.giaTien;
@@ -485,15 +487,15 @@ const index: React.FC = () => {
     const itemTotalPrice = itemPrice * itemQuantity;
     return acc + itemTotalPrice;
   }, 0);
-  
-//phần thêm
+
+  //phần thêm
   const handleQuantityChange = async (record: DataType) => {
     if (updatedQuantities.includes(record.id)) {
       try {
         await updateProductQuantity(record.id, record.soLuong);
         //message.success(`Sản phẩm với ID ${record.id} đã được cập nhật thành công.`);
       } catch (error) {
-        message.error('Cập nhật sản phẩm thất bại.');
+        message.error("Cập nhật sản phẩm thất bại.");
       }
     }
   };
@@ -501,11 +503,9 @@ const index: React.FC = () => {
     try {
       await request.put(`/gio-hang-chi-tiet/${id}`, { soLuong });
     } catch (error) {
-      throw new Error('Cập nhật sản phẩm thất bại');
+      throw new Error("Cập nhật sản phẩm thất bại");
     }
   };
-  
-
 
   // Thêm cột checkbox để chọn sản phẩm
   const columns: ColumnsType<DataType> = [
@@ -583,7 +583,10 @@ const index: React.FC = () => {
               if (isNaN(newValue) || newValue < 1) {
                 newData[index].soLuong = 1;
               } else {
-                newData[index].soLuong = Math.min(newValue, newData[index].chiTietSanPham.soLuong);
+                newData[index].soLuong = Math.min(
+                  newValue,
+                  newData[index].chiTietSanPham.soLuong
+                );
               }
               setData(newData);
               if (!updatedQuantities.includes(record.id)) {
@@ -592,7 +595,7 @@ const index: React.FC = () => {
             }}
             onBlur={() => handleQuantityChange(record)} // Gọi hàm khi rời khỏi ô input
             onKeyDown={(e) => {
-              if (e.key === 'Enter') {
+              if (e.key === "Enter") {
                 e.preventDefault(); // Ngăn chặn hành vi mặc định của Enter
                 handleQuantityChange(record); // Gọi hàm khi nhấn Enter
               }
@@ -677,7 +680,10 @@ const index: React.FC = () => {
       }));
     try {
       setLoading(true);
-      await request.put("/gio-hang-chi-tiet/update/" + idGioHangTaiKhoan, updatedData);
+      await request.put(
+        "/gio-hang-chi-tiet/update/" + idGioHangTaiKhoan,
+        updatedData
+      );
       setLoading(false);
       message.success("Cập nhật giỏ hàng thành công");
     } catch (error) {
@@ -685,7 +691,6 @@ const index: React.FC = () => {
       setLoading(false);
     }
   };
-  
 
   return (
     <>
@@ -725,7 +730,10 @@ const index: React.FC = () => {
               <ThanhToan
                 tamTinh={totalSelectedAmount}
                 dataSanPham={selectedData}
-                soSanPham={selectedData.reduce((acc, item) => acc + item.soLuong, 0)}
+                soSanPham={selectedData.reduce(
+                  (acc, item) => acc + item.soLuong,
+                  0
+                )}
               />
             </Col>
           </Row>

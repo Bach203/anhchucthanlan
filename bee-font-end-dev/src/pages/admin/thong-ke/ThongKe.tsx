@@ -249,140 +249,91 @@ const ThongKe: React.FC = () => {
 
   return (
     <>
-      <Row>
-        <Row style={{ margin: "20px" }}>
-          <Col span={24}>
-            <Card
-              title="Thống Kê Theo Ngày"
-              hoverable
-              extra={
-                <DatePicker
-                  allowClear={false}
-                  format="DD-MM-YYYY"
-                  onChange={onChangeNgay}
-                  defaultValue={dayjs()}
-                />
-              }
-              style={{ height: "580px", width: "580px" }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "100%",
-                  height: "600px",
-                }}
-              >
-                <div style={{ flex: 3 }}>
-                  <ChartThongKe title="Thống Kê Theo Ngày" data={thongKeNgay} />
-                </div>
-              </div>
-            </Card>
-          </Col>
-        </Row>
-        <Row style={{ margin: "20px" }}>
-          <Col span={24}>
-            <Card
-              title="Thống Kê Theo Tuần"
-              hoverable
-              extra={
-                <DatePicker
-                  allowClear={false}
-                  format="DD-MM-YYYY"
-                  picker="week"
-                  onChange={onChangeTuan}
-                  defaultValue={dayjs().endOf("week")}
-                />
-              }
-              style={{ height: "580px", width: "580px" }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  height: "100%",
-                }}
-              >
-                <div style={{ flex: 3 }}>
-                  <ChartThongKe title="Thống Kê Theo Tuần" data={thongKeTuan} />
-                </div>
-              </div>
-            </Card>
-          </Col>
-        </Row>
-        <Row style={{ margin: "20px" }}>
-          <Col span={24}>
-            <Card
-              title="Thống Kê Theo Tháng"
-              hoverable
-              extra={
-                <DatePicker
-                  allowClear={false}
-                  format="MM-YYYY"
-                  picker="month"
-                  onChange={onChangeThang}
-                  defaultValue={dayjs().endOf("month")}
-                />
-              }
-              style={{ height: "580px", width: "580px" }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  height: "100%",
-                }}
-              >
-                <div style={{ flex: 3 }}>
-                  <ChartThongKe
-                    title="Thống Kê Theo Tháng"
-                    data={thongKeThang}
-                  />
-                </div>
-              </div>
-            </Card>
-          </Col>
-        </Row>
-        <Row style={{ margin: "20px" }}>
-          <Col span={24}>
-            <Card
-              title="Thống Kê Theo Năm"
-              hoverable
-              extra={
-                <DatePicker
-                  allowClear={false}
-                  picker="year"
-                  format="YYYY"
-                  onChange={onChangeNam}
-                  defaultValue={dayjs().endOf("year")}
-                />
-              }
-              style={{ height: "580px", width: "580px" }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  height: "100%",
-                }}
-              >
-                <div style={{ flex: 3 }}>
-                  <ChartThongKe title="Thống Kê Theo Năm" data={thongKeNam} />
-                </div>
-              </div>
-            </Card>
-          </Col>
-        </Row>
+      <Row style={{ margin: "20px" }}>
+        <Col span={24}>
+          <Card
+            title="Thống Kê Theo Ngày"
+            hoverable
+            extra={
+              <DatePicker
+                allowClear={false}
+                format="DD-MM-YYYY"
+                onChange={onChangeNgay}
+                defaultValue={dayjs()}
+              />
+            }
+            style={{ width: "100%", height: "auto" }}
+          >
+            <ChartThongKe title="Thống Kê Theo Ngày" data={thongKeNgay} />
+          </Card>
+        </Col>
       </Row>
-      <Row>
-        <Col
-          style={{
-            marginLeft: 50,
-            marginRight: 70,
-            marginTop: 30,
-            width: "100%",
-          }}
-        >
+
+      <Row style={{ margin: "20px" }}>
+        <Col span={24}>
+          <Card
+            title="Thống Kê Theo Tuần"
+            hoverable
+            extra={
+              <DatePicker
+                allowClear={false}
+                format="DD-MM-YYYY"
+                picker="week"
+                onChange={onChangeTuan}
+                defaultValue={dayjs().endOf("week")}
+              />
+            }
+            style={{ width: "100%", height: "auto" }}
+          >
+            <ChartThongKe title="Thống Kê Theo Tuần" data={thongKeTuan} />
+          </Card>
+        </Col>
+      </Row>
+
+      <Row style={{ margin: "20px" }}>
+        <Col span={24}>
+          <Card
+            title="Thống Kê Theo Tháng"
+            hoverable
+            extra={
+              <DatePicker
+                allowClear={false}
+                format="MM-YYYY"
+                picker="month"
+                onChange={onChangeThang}
+                defaultValue={dayjs().endOf("month")}
+              />
+            }
+            style={{ width: "100%", height: "auto" }}
+          >
+            <ChartThongKe title="Thống Kê Theo Tháng" data={thongKeThang} />
+          </Card>
+        </Col>
+      </Row>
+
+      <Row style={{ margin: "20px" }}>
+        <Col span={24}>
+          <Card
+            title="Thống Kê Theo Năm"
+            hoverable
+            extra={
+              <DatePicker
+                allowClear={false}
+                picker="year"
+                format="YYYY"
+                onChange={onChangeNam}
+                defaultValue={dayjs().endOf("year")}
+              />
+            }
+            style={{ width: "100%", height: "auto" }}
+          >
+            <ChartThongKe title="Thống Kê Theo Năm" data={thongKeNam} />
+          </Card>
+        </Col>
+      </Row>
+
+      <Row style={{ margin: "20px" }}>
+        <Col span={24}>
           <Card
             title={
               <span>
@@ -396,92 +347,23 @@ const ThongKe: React.FC = () => {
               </span>
             }
             hoverable
-            style={{ width: "auto", height: "auto", position: "relative" }}
+            style={{ width: "100%", height: "auto" }}
           >
-            <div
-              style={{ position: "absolute", top: 13, right: 10, zIndex: 1 }}
-            >
-              <RangePicker
-                allowClear={false}
-                style={{ width: "auto" }}
-                onChange={onChangeKhoangNgay}
-                disabledDate={disableFutureDates}
-                value={selectedDateRange}
-              />
-            </div>
-            <Col>
-              <ChartThongKe
-                title="Thống Kê Theo Khoảng Ngày"
-                data={thongKeKhoangNgay}
-              />
-            </Col>
-            <Row>
-              <Col span={4}>
-                <Space>
-                  Tổng doanh thu:
-                  <Text strong>
-                    {formatGiaTienVND(
-                      thongKeKhoangNgay !== null
-                        ? thongKeKhoangNgay.tongDoanhThu
-                        : 0
-                    )}
-                  </Text>
-                </Space>
-              </Col>
-              <Col span={4}>
-                <Space>
-                  Tổng số đơn thành công:
-                  <Text strong>
-                    {thongKeKhoangNgay !== null
-                      ? thongKeKhoangNgay.tongSoDonThanhCong
-                      : 0}
-                  </Text>
-                </Space>
-              </Col>
-              <Col span={3}>
-                <Space>
-                  Tổng số đơn hủy:
-                  <Text strong>
-                    {thongKeKhoangNgay !== null
-                      ? thongKeKhoangNgay.tongSoDonHuy
-                      : 0}
-                  </Text>
-                </Space>
-              </Col>
-              <Col span={5}>
-                <Space>
-                  Tổng số sản phẩm đã bán:
-                  <Text strong>
-                    {thongKeKhoangNgay !== null
-                      ? thongKeKhoangNgay.tongSoSanPhamDaBan
-                      : 0}
-                  </Text>
-                </Space>
-              </Col>
-              <Col span={4}>
-                <Space>
-                  Tổng số đơn Tại quầy:
-                  <Text strong>
-                    {thongKeKhoangNgay !== null
-                      ? thongKeKhoangNgay.tongSoDonTaiQuay
-                      : 0}
-                  </Text>
-                </Space>
-              </Col>
-              <Col span={4}>
-                <Space>
-                  Tổng số đơn Online:
-                  <Text strong>
-                    {thongKeKhoangNgay !== null
-                      ? thongKeKhoangNgay.tongSoDonOnline
-                      : 0}
-                  </Text>
-                </Space>
-              </Col>
-            </Row>
+            <RangePicker
+              allowClear={false}
+              style={{ width: "auto" }}
+              onChange={onChangeKhoangNgay}
+              disabledDate={disableFutureDates}
+              value={selectedDateRange}
+            />
+            <ChartThongKe
+              title="Thống Kê Theo Khoảng Ngày"
+              data={thongKeKhoangNgay}
+            />
           </Card>
         </Col>
       </Row>
+
       <Row style={{ margin: "20px" }}>
         <Col span={24}>
           <TableSoLuongTon />

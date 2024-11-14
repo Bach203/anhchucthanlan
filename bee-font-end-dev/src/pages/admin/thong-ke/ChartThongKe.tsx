@@ -20,11 +20,11 @@ interface ChartThongKeProps {
 
 const ChartThongKe: React.FC<ChartThongKeProps> = ({ title, data }) => {
   const fakeData = {
-    tongSoDonThanhCong: 40,
-    tongSoDonHuy: 20,
-    tongSoSanPhamDaBan: 10,
-    tongSoDonTaiQuay: 15,
-    tongSoDonOnline: 15,
+    tongSoDonThanhCong: 0,
+    tongSoDonHuy: 0,
+    tongSoSanPhamDaBan: 0,
+    tongSoDonTaiQuay: 0,
+    tongSoDonOnline: 0,
   };
 
   const isDataValid =
@@ -89,7 +89,9 @@ const ChartThongKe: React.FC<ChartThongKeProps> = ({ title, data }) => {
       },
       title: {
         display: true,
-        text: isDataValid ? title : `${title} (Fake Dữ Liệu)`,
+        text: isDataValid
+          ? title
+          : `${title} (Không Có Đơn Hàng Nào Trong Giai Đoạn Này)`,
       },
       datalabels: {
         color: "#fff",
